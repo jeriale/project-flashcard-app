@@ -1,0 +1,45 @@
+{
+  "decks": [
+    {
+      "name": "The Test Deck",
+      "description": "",
+      "id": 2
+    },
+    {
+      "name": "New Deck",
+      "description": "This is a new deck.",
+      "id": 3
+    },
+    {
+      "name": "New Deck",
+      "description": "This is a new deck.",
+      "id": 4
+    }
+  ],
+  "cards": [
+    {
+      "id": 2,
+      "front": "This is a sample question.",
+      "back": "This is a sample answer.",
+      "deckId": 2
+    },
+    {
+      "id": 3,
+      "front": "This is a sample question.",
+      "back": "This is a sample answer.",
+      "deckId": 2
+    },
+    {
+      "front": "What is your favorite color?",
+      "back": "Blue",
+      "id": 4,
+      "deckId": "2"
+    },
+    {
+      "id": 5,
+      "front": "This is a sample question.",
+      "back": "This is a sample answer.",
+      "deckId": 2
+    }
+  ]
+}
