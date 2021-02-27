@@ -73,7 +73,7 @@ function Deck() {
         <Study deckName={deck.name} cards={deck.cards} />
       </Route>
       <Route path={`/decks/:deckId/edit`}>
-        <EditDeck data={deck} />
+        <EditDeck name={deck.name} data={deck} />
       </Route>
       <Route path={`/decks/:deckId/cards/new`}>
         <CreateForm type="Card" name={deck.name} event={handleCardCreate} />

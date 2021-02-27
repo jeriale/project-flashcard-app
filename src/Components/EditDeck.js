@@ -4,7 +4,7 @@ import { updateDeck } from "../utils/api";
 import EditForm from "./EditForm";
 
 
-function EditDeck({ data = null }) {
+function EditDeck({ data = null, name }) {
     const { deckId } = useParams();
     const history = useHistory();
 
@@ -23,7 +23,7 @@ function EditDeck({ data = null }) {
       return <strong>Loading...</strong>;
     }
 
-  return <EditForm type="Deck" data={data} event={handleDeckUpdate} />;
+  return <EditForm type="Deck" name={name} data={data} event={handleDeckUpdate} />;
 }
 
 export default EditDeck;

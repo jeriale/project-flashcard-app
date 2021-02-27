@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 
-function Form({ type, name, data, event }) {
+function EditForm({ type, name, data, event }) {
     const { deckId } = useParams();
     const history = useHistory();
 
@@ -65,4 +65,4 @@ function Form({ type, name, data, event }) {
     );
 }
 
-export default Form;
+export default EditForm;
