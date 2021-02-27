@@ -1,15 +1,15 @@
 import React from "react";
 import { useHistory } from "react-router-dom";
 import { createDeck } from "../utils/api";
+import CreateForm from "./CreateForm";
 
 function CreateDeck() {
     const history = useHistory();
 
-    const handleDeckCreate = () => {
-        const formData = new FormData(document.querySelector("form"));
+    const handleDeckCreate = (formData) => {
         const created = {
-            name: formData.get("name"),
-            description: formData.get("description")
+            name: formData.name,
+            description: formData.description
         }
         createDeck(created);
         history.push("/")
@@ -25,18 +25,7 @@ function CreateDeck() {
                 </ol>
             </nav>
             <h2>Create Deck</h2>
-            <form onSubmit={handleDeckCreate}>
-                <div className="form-group">
-                    <label htmlFor="deck-name">Name</label>
-                    <input type="text" className="form-control" id="deck-name" name="name" placeholder="Deck name" />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="deck-description">Description</label>
-                    <textarea className="form-control" id="deck-description" name="description" placeholder="Brief description of the deck" />
-                </div>
-                <a href="/" className="btn btn-secondary mr-1">Cancel</a>
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+            <CreateForm type="deck" event={handleDeckCreate} />
         </>
     );
 }

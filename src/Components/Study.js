@@ -77,9 +77,9 @@ function Study({ deckName, cards }) {
         <>
           <div className="alert alert-danger" role="alert">
             <h3 className="alert-heading">Not enough cards...</h3>
-            There needs to be at least 3 cards in a deck in order to study. There are {cardData.length} cards in this deck.
+            There needs to be at least 3 cards in a deck in order to study. There are {cards.length} cards in this deck.
           </div>
-          <button className="btn btn-primary"><span className="oi oi-plus"></span> Add Cards</button>
+          <a href={`/decks/${deckId}/cards/new`} className="btn btn-primary"><span className="oi oi-plus"></span> Add Cards</a>
         </>
       ) : (
         <div className="card mb-2">

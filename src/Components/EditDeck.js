@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import { readDeck, updateDeck } from "../utils/api";
+import EditForm from "./EditForm";
 
 
 function EditDeck() {
@@ -20,11 +21,10 @@ function EditDeck() {
         getDeck();
       }, [deckId]);
 
-      const handleDeckUpdate = () => {
-        const formData = new FormData(document.querySelector("form"));
+      const handleDeckUpdate = (formData) => {
         const update = {
-            name: formData.get("name"),
-            description: formData.get("description"),
+            name: formData.name,
+            description: formData.description,
             id: deckId
         }
         updateDeck(update);
@@ -42,18 +42,7 @@ function EditDeck() {
                 </ol>
             </nav>
             <h2>Edit Deck</h2>
-            <form onSubmit={handleDeckUpdate}>
-                <div className="form-group">
-                    <label htmlFor="deckName">Name</label>
-                    <textarea className="form-control" id="deckName" name="name" defaultValue={deck.name} />
-                </div>
-                <div className="form-group">
-                    <label htmlFor="deckDescription">Description</label>
-                    <textarea className="form-control" id="deckDescription" name="description" defaultValue={deck.description} />
-                </div>
-                <a href={`/decks/${deckId}`} className="btn btn-secondary mr-1">Cancel</a>
-                <button type="submit" className="btn btn-primary">Submit</button>
-            </form>
+            <EditForm data={deck} event={handleDeckUpdate} />
         </>
     );
 }
