@@ -3,9 +3,9 @@ import { Switch, Route, useParams, useRouteMatch } from "react-router-dom";
 import CardList from "../Components/CardList";
 import Study from "../Components/Study";
 import EditDeck from "../Components/EditDeck";
-import CreateCard from "../Components/CreateCard";
+import CreateForm from "../Components/CreateForm";
 import EditCard from "../Components/EditCard";
-import { readDeck, deleteDeck } from "../utils/api";
+import { readDeck, deleteDeck, createCard } from "../utils/api";
 
 function Deck() {
   const { deckId } = useParams();
@@ -30,6 +30,15 @@ function Deck() {
       deleteDeck(deckId);
       window.location.reload(true);
     } 
+  }
+
+  const handleCardCreate = (formData) => {
+    const created = {
+        front: formData.front,
+        back: formData.back
+    }
+    createCard(deckId, created);
+    window.location.reload(true);
   }
 
   if (deck == null) {
@@ -64,10 +73,10 @@ function Deck() {
         <Study deckName={deck.name} cards={deck.cards} />
       </Route>
       <Route path={`/decks/:deckId/edit`}>
-        <EditDeck />
+        <EditDeck data={deck} />
       </Route>
       <Route path={`/decks/:deckId/cards/new`}>
-        <CreateCard name={deck.name} />
+        <CreateForm type="Card" name={deck.name} event={handleCardCreate} />
       </Route>
       <Route path={`/decks/:deckId/cards/:cardId/edit`}>
         <EditCard name={deck.name} />

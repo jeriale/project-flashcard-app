@@ -1,12 +1,25 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, useHistory } from "react-router-dom";
+import { createDeck } from "../utils/api";
 import Header from "./Header";
 import DeckList from "../Components/DeckList";
 import Deck from "../Components/Deck";
-import CreateDeck from "../Components/CreateDeck";
+import CreateForm from "../Components/CreateForm";
 import NotFound from "../Layout/NotFound";
 
 function Layout() {
+  const history = useHistory();
+
+  const handleDeckCreate = (formData) => {
+    const created = {
+        name: formData.name,
+        description: formData.description
+    }
+    createDeck(created);
+    history.push("/");
+    window.location.reload(true);
+  }
+
   return (
     <>
       <Header />
@@ -16,7 +29,7 @@ function Layout() {
             <DeckList />
           </Route>
           <Route path={"/decks/new"}>
-            <CreateDeck />
+            <CreateForm type="Deck" event={handleDeckCreate} />
           </Route>
           <Route path={"/decks/:deckId"}>
             <Deck />

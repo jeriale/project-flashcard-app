@@ -1,8 +1,8 @@
 {
   "decks": [
     {
-      "name": "Test Deck",
-      "description": "Test deck.",
+      "name": "Literature Deck",
+      "description": "A deck for literature.",
       "id": 2
     },
     {
@@ -14,12 +14,27 @@
       "name": "A New Deck",
       "description": "Another new deck.",
       "id": 5
+    },
+    {
+      "name": "New Deck",
+      "description": "New deck after creating component",
+      "id": 6
+    },
+    {
+      "name": "Deck Name",
+      "description": "Added redirect.",
+      "id": 7
+    },
+    {
+      "name": "The Last New Deck",
+      "description": "The last new deck before committing.",
+      "id": 8
     }
   ],
   "cards": [
     {
-      "front": "The sample question.",
-      "back": "The sample answer.",
+      "front": "The question.",
+      "back": "The answer.",
       "id": 2,
       "deckId": 2
     },

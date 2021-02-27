@@ -34,22 +34,10 @@ function EditCard({ name }) {
     }
 
     if (card === null) {
-        return <strong>Loading...</strong>
+        return <strong>Loading...</strong>;
     }
 
-    return (
-        <>
-            <nav aria-label="breadcrumb">
-                <ol className="breadcrumb">
-                    <li className="breadcrumb-item"><a href="/"><span className="oi oi-home"></span> Home</a></li>
-                    <li className="breadcrumb-item"><a href={`/decks/${deckId}`}>{name}</a></li>
-                    <li className="breadcrumb-item text-secondary">Edit Card {cardId}</li>
-                </ol>
-            </nav>
-            <h2>Edit Card</h2>
-            <EditForm data={card} event={handleCardUpdate} />
-        </>
-    );
+    return <EditForm data={card} name={name} event={handleCardUpdate} />;
 }
 
 export default EditCard;
